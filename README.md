@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# 🏛️ Archtka - PENS E-Office (Sistem Peminjaman Ruangan)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sistem Informasi Manajemen Peminjaman Ruangan berbasis Web yang dirancang untuk mendigitalisasi proses peminjaman prasarana di lingkungan kampus. 
 
-## Available Scripts
+## 📖 Studi Kasus
+Proses peminjaman ruangan di kampus seringkali mengalami bentrok jadwal dan tidak tercatatnya riwayat secara transparan. Archtka hadir sebagai solusi E-Office untuk Admin mengelola prasarana, memverifikasi pengajuan peminjaman (Approve/Reject), dan melacak rekam jejak (*log history*) dari setiap perubahan status secara *real-time*.
 
-In the project directory, you can run:
+## 🚀 Fitur Utama & Fungsionalitas
+1. **Dashboard Analitik:** Menampilkan statistik total ruangan, pengajuan, dan status *Pending*.
+2. **Manajemen Prasarana (CRUD):** Tambah, Edit, Hapus, dan Lihat data ruangan beserta kapasitasnya.
+3. **Manajemen Pengajuan Peminjaman:** - Input pengajuan manual.
+   - Verifikasi pengajuan (Approve / Reject) yang otomatis mengubah status.
+   - *Conflict Handling* (Pencegahan jadwal bentrok).
+4. **Log Riwayat (History):** Mencatat setiap aktivitas *update* status secara mendetail.
+5. **Smart Table:** Dilengkapi fitur *Search*, *Sort* (Terbaru/Terlama), dan *Pagination* (5, 10, 15 baris).
 
-### `npm start`
+## 🏗️ Arsitektur Sistem
+Aplikasi ini dibangun dengan arsitektur **Client-Server**:
+- **Frontend (Client):** React.js dengan TypeScript, mengadopsi UI/UX modern (Pastel Theme, Zebra-striped tables, Responsive Design).
+- **Backend (API):** ASP.NET Core Web API (C#) menggunakan Entity Framework Core.
+- **Database:** SQLite (untuk fase *development* dan MVP).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🔌 API Specification (Singkat)
+- `GET /api/Rooms` : Mengambil seluruh data ruangan.
+- `POST /api/Rooms` : Menambahkan ruangan baru.
+- `GET /api/Bookings` : Mengambil seluruh data peminjaman beserta log riwayat.
+- `POST /api/Bookings` : Membuat pengajuan baru (terdapat validasi bentrok jadwal).
+- `PUT /api/Bookings/{id}/status` : Update status peminjaman (Approve/Reject).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 💻 Cara Instalasi & Menjalankan
+1. **Backend:** Buka terminal di folder backend -> jalankan `dotnet run` (Berjalan di `http://localhost:5157`).
+2. **Frontend:** Buka terminal di folder frontend -> jalankan `npm install` lalu `npm start` (Berjalan di `http://localhost:3000`).
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 💡 Refleksi Pembelajaran
+Melalui proyek ini, mahasiswa memahami pentingnya integrasi antara Frontend dan RESTful API Backend, manajemen *state* pada React, serta implementasi *business logic* (seperti validasi waktu dan pencatatan log) langsung pada sisi Backend.
