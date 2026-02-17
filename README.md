@@ -1,35 +1,40 @@
-# 🏛️ Archtka - PENS E-Office (Sistem Peminjaman Ruangan)
+# Archtka - Sistem Peminjaman Ruangan
 
-Sistem Informasi Manajemen Peminjaman Ruangan berbasis Web yang dirancang untuk mendigitalisasi proses peminjaman prasarana di lingkungan kampus. 
+## Description
+Sistem Informasi Manajemen Peminjaman Ruangan berbasis Web yang dirancang untuk mendigitalisasi proses peminjaman prasarana di lingkungan kampus Politeknik Elektronika Negeri Surabaya.
 
-## 📖 Studi Kasus
-Proses peminjaman ruangan di kampus seringkali mengalami bentrok jadwal dan tidak tercatatnya riwayat secara transparan. Archtka hadir sebagai solusi E-Office untuk Admin mengelola prasarana, memverifikasi pengajuan peminjaman (Approve/Reject), dan melacak rekam jejak (*log history*) dari setiap perubahan status secara *real-time*.
+## Features
+- Manajemen Data Prasarana (Ruangan & Kapasitas).
+- Pengajuan Peminjaman Ruangan dengan sistem anti-bentrok.
+- Verifikasi Status (Approve/Reject).
+- Perekaman Jejak Aktivitas (Log History).
+- Smart Data Table (Paginasi, Pencarian, Pengurutan).
 
-## 🚀 Fitur Utama & Fungsionalitas
-1. **Dashboard Analitik:** Menampilkan statistik total ruangan, pengajuan, dan status *Pending*.
-2. **Manajemen Prasarana (CRUD):** Tambah, Edit, Hapus, dan Lihat data ruangan beserta kapasitasnya.
-3. **Manajemen Pengajuan Peminjaman:** - Input pengajuan manual.
-   - Verifikasi pengajuan (Approve / Reject) yang otomatis mengubah status.
-   - *Conflict Handling* (Pencegahan jadwal bentrok).
-4. **Log Riwayat (History):** Mencatat setiap aktivitas *update* status secara mendetail.
-5. **Smart Table:** Dilengkapi fitur *Search*, *Sort* (Terbaru/Terlama), dan *Pagination* (5, 10, 15 baris).
+## Tech Stack
+- **Frontend:** React.js, TypeScript, Bootstrap/Tailwind CSS
+- **Backend:** ASP.NET Core Web API (C#)
+- **Database:** SQLite / SQL Server
 
-## 🏗️ Arsitektur Sistem
-Aplikasi ini dibangun dengan arsitektur **Client-Server**:
-- **Frontend (Client):** React.js dengan TypeScript, mengadopsi UI/UX modern (Pastel Theme, Zebra-striped tables, Responsive Design).
-- **Backend (API):** ASP.NET Core Web API (C#) menggunakan Entity Framework Core.
-- **Database:** SQLite (untuk fase *development* dan MVP).
+## Installation
+1. Clone repository ini: `git clone [LINK_REPO_ANDA]`
+2. Untuk Backend: Buka folder backend dan jalankan `dotnet restore`.
+3. Untuk Frontend: Buka folder frontend dan jalankan `npm install`.
 
-## 🔌 API Specification (Singkat)
-- `GET /api/Rooms` : Mengambil seluruh data ruangan.
-- `POST /api/Rooms` : Menambahkan ruangan baru.
-- `GET /api/Bookings` : Mengambil seluruh data peminjaman beserta log riwayat.
-- `POST /api/Bookings` : Membuat pengajuan baru (terdapat validasi bentrok jadwal).
-- `PUT /api/Bookings/{id}/status` : Update status peminjaman (Approve/Reject).
+## Usage
+1. Jalankan server Backend dengan perintah: `dotnet run` (berjalan di localhost:5157).
+2. Jalankan server Frontend dengan perintah: `npm start` (berjalan di localhost:3000).
+3. Akses web di browser, masuk ke menu Data Ruangan atau Data Peminjaman untuk mulai mengelola prasarana.
 
-## 💻 Cara Instalasi & Menjalankan
-1. **Backend:** Buka terminal di folder backend -> jalankan `dotnet run` (Berjalan di `http://localhost:5157`).
-2. **Frontend:** Buka terminal di folder frontend -> jalankan `npm install` lalu `npm start` (Berjalan di `http://localhost:3000`).
+## Environment Variables
+Buat file `.env` berdasarkan file `.env.example`.
+- `DATABASE_URL` = [Konfigurasi koneksi database Anda]
+- `API_PORT` = 5157
 
-## 💡 Refleksi Pembelajaran
-Melalui proyek ini, mahasiswa memahami pentingnya integrasi antara Frontend dan RESTful API Backend, manajemen *state* pada React, serta implementasi *business logic* (seperti validasi waktu dan pencatatan log) langsung pada sisi Backend.
+## Contributing
+Sistem ini bersifat tertutup (Private Project) untuk keperluan internal kampus. Kontribusi dilakukan melalui sistem Branching dan Pull Request yang disetujui oleh Project Manager.
+
+## License
+MIT License
+
+## Credits / Author Info
+Dikembangkan oleh Archtka (Mahasiswa PENS) untuk pemenuhan Tugas Pendahuluan Track PBL 2026.
